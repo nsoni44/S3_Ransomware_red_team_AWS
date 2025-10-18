@@ -1,0 +1,123 @@
++-------------------------------------------------------------+------------------------------------------------------------------+------------+----------------------+
+| TECHNIQUE ID                                                | TECHNIQUE NAME                                                   | PLATFORM   | MITRE ATT&CK TACTIC  |
++-------------------------------------------------------------+------------------------------------------------------------------+------------+----------------------+
+| aws.credential-access.ec2-get-password-data                 | Retrieve EC2 Password Data                                       | AWS        | Credential Access    |
+| aws.credential-access.ec2-steal-instance-credentials        | Steal EC2 Instance Credentials                                   | AWS        | Credential Access    |
+| aws.credential-access.secretsmanager-batch-retrieve-secrets | Retrieve a High Number of Secrets Manager secrets (Batch)        | AWS        | Credential Access    |
+| aws.credential-access.secretsmanager-retrieve-secrets       | Retrieve a High Number of Secrets Manager secrets                | AWS        | Credential Access    |
+| aws.credential-access.ssm-retrieve-securestring-parameters  | Retrieve And Decrypt SSM Parameters                              | AWS        | Credential Access    |
+| aws.defense-evasion.cloudtrail-delete                       | Delete CloudTrail Trail                                          | AWS        | Defense Evasion      |
+| aws.defense-evasion.cloudtrail-event-selectors              | Disable CloudTrail Logging Through Event Selectors               | AWS        | Defense Evasion      |
+| aws.defense-evasion.cloudtrail-lifecycle-rule               | CloudTrail Logs Impairment Through S3 Lifecycle Rule             | AWS        | Defense Evasion      |
+| aws.defense-evasion.cloudtrail-stop                         | Stop CloudTrail Trail                                            | AWS        | Defense Evasion      |
+| aws.defense-evasion.dns-delete-logs                         | Delete DNS query logs                                            | AWS        | Defense Evasion      |
+| aws.defense-evasion.organizations-leave                     | Attempt to Leave the AWS Organization                            | AWS        | Defense Evasion      |
+| aws.defense-evasion.vpc-remove-flow-logs                    | Remove VPC Flow Logs                                             | AWS        | Defense Evasion      |
+| aws.discovery.ec2-enumerate-from-instance                   | Execute Discovery Commands on an EC2 Instance                    | AWS        | Discovery            |
+| aws.discovery.ec2-download-user-data                        | Download EC2 Instance User Data                                  | AWS        | Discovery            |
+| aws.discovery.ses-enumerate                                 | Enumerate SES                                                    | AWS        | Discovery            |
+| aws.execution.ec2-launch-unusual-instances                  | Launch Unusual EC2 instances                                     | AWS        | Execution            |
+| aws.execution.ec2-user-data                                 | Execute Commands on EC2 Instance via User Data                   | AWS        | Execution            |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.execution.ssm-send-command                              | Usage of ssm:SendCommand on multiple instances                   | AWS        | Execution            |
+| aws.execution.ssm-start-session                             | Usage of ssm:StartSession on multiple instances                  | AWS        | Execution            |
+| aws.exfiltration.ec2-security-group-open-port-22-ingress    | Open Ingress Port 22 on a Security Group                         | AWS        | Exfiltration         |
+| aws.exfiltration.ec2-share-ami                              | Exfiltrate an AMI by Sharing It                                  | AWS        | Exfiltration         |
+| aws.exfiltration.ec2-share-ebs-snapshot                     | Exfiltrate EBS Snapshot by Sharing It                            | AWS        | Exfiltration         |
+| aws.exfiltration.rds-share-snapshot                         | Exfiltrate RDS Snapshot by Sharing                               | AWS        | Exfiltration         |
+| aws.exfiltration.s3-backdoor-bucket-policy                  | Backdoor an S3 Bucket via its Bucket Policy                      | AWS        | Exfiltration         |
+| aws.impact.bedrock-invoke-model                             | Invoke Bedrock Model                                             | AWS        | Impact               |
+| aws.impact.s3-ransomware-batch-deletion                     | S3 Ransomware through batch file deletion                        | AWS        | Impact               |
+| aws.impact.s3-ransomware-client-side-encryption             | S3 Ransomware through client-side encryption                     | AWS        | Impact               |
+| aws.impact.s3-ransomware-individual-deletion                | S3 Ransomware through individual file deletion                   | AWS        | Impact               |
+| aws.initial-access.console-login-without-mfa                | Console Login without MFA                                        | AWS        | Initial Access       |
+| aws.lateral-movement.ec2-serial-console-send-ssh-public-key | Usage of EC2 Serial Console to push SSH public key               | AWS        | Lateral Movement     |
+| aws.lateral-movement.ec2-instance-connect                   | Usage of EC2 Instance Connect on multiple instances              | AWS        | Lateral Movement     |
+| aws.persistence.iam-backdoor-role                           | Backdoor an IAM Role                                             | AWS        | Persistence          |
+| aws.persistence.iam-backdoor-user                           | Create an Access Key on an IAM User                              | AWS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.persistence.iam-create-admin-user                       | Create an administrative IAM User                                | AWS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.persistence.iam-create-backdoor-role                    | Create a backdoored IAM Role                                     | AWS        | Persistence          |
+| aws.persistence.iam-create-user-login-profile               | Create a Login Profile on an IAM User                            | AWS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.persistence.lambda-backdoor-function                    | Backdoor Lambda Function Through Resource-Based Policy           | AWS        | Persistence          |
+| aws.persistence.lambda-layer-extension                      | Add a Malicious Lambda Extension                                 | AWS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.persistence.lambda-overwrite-code                       | Overwrite Lambda Function Code                                   | AWS        | Persistence          |
+| aws.persistence.rolesanywhere-create-trust-anchor           | Create an IAM Roles Anywhere trust anchor                        | AWS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| aws.persistence.sts-federation-token                        | Generate temporary AWS credentials using GetFederationToken      | AWS        | Persistence          |
+| aws.privilege-escalation.iam-update-user-login-profile      | Change IAM user password                                         | AWS        | Privilege Escalation |
+| azure.execution.vm-custom-script-extension                  | Execute Command on Virtual Machine using Custom Script Extension | azure      | Execution            |
+| azure.execution.vm-run-command                              | Execute Commands on Virtual Machine using Run Command            | azure      | Execution            |
+| azure.exfiltration.disk-export                              | Export Disk Through SAS URL                                      | azure      | Exfiltration         |
+| azure.persistence.create-bastion-shareable-link             | Create Azure VM Bastion shareable link                           | azure      | Persistence          |
+| eks.lateral-movement.create-access-entry                    | Create Admin EKS Access Entry                                    | EKS        | Lateral Movement     |
+| eks.persistence.backdoor-aws-auth-configmap                 | Backdoor aws-auth EKS ConfigMap                                  | EKS        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| entra-id.persistence.backdoor-application-sp                | Backdoor Entra ID application through service principal          | entra-id   | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| entra-id.persistence.backdoor-application                   | Backdoor Entra ID application                                    | entra-id   | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| entra-id.persistence.guest-user                             | Create Guest User                                                | entra-id   | Persistence          |
+| entra-id.persistence.hidden-au                              | Create Hidden Scoped Role Assignment Through HiddenMembership AU | entra-id   | Persistence          |
+| entra-id.persistence.new-application                        | Create Application                                               | entra-id   | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| entra-id.persistence.restricted-au                          | Create Sticky Backdoor User Through Restricted Management AU     | entra-id   | Persistence          |
+| gcp.credential-access.secretmanager-retrieve-secrets        | Retrieve a High Number of Secret Manager secrets                 | GCP        | Credential Access    |
+| gcp.exfiltration.share-compute-disk                         | Exfiltrate Compute Disk by sharing it                            | GCP        | Exfiltration         |
+| gcp.exfiltration.share-compute-image                        | Exfiltrate Compute Image by sharing it                           | GCP        | Exfiltration         |
+| gcp.exfiltration.share-compute-snapshot                     | Exfiltrate Compute Disk by sharing a snapshot                    | GCP        | Exfiltration         |
+| gcp.persistence.backdoor-service-account-policy             | Backdoor a GCP Service Account through its IAM Policy            | GCP        | Persistence          |
+| gcp.persistence.create-admin-service-account                | Create an Admin GCP Service Account                              | GCP        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| gcp.persistence.create-service-account-key                  | Create a GCP Service Account Key                                 | GCP        | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| gcp.persistence.invite-external-user                        | Invite an External User to a GCP Project                         | GCP        | Persistence          |
+| k8s.credential-access.dump-secrets                          | Dump All Secrets                                                 | kubernetes | Credential Access    |
+| k8s.credential-access.steal-serviceaccount-token            | Steal Pod Service Account Token                                  | kubernetes | Credential Access    |
+| k8s.persistence.create-admin-clusterrole                    | Create Admin ClusterRole                                         | kubernetes | Persistence          |
+|                                                             |                                                                  |            | Privilege Escalation |
+| k8s.persistence.create-client-certificate                   | Create Client Certificate Credential                             | kubernetes | Persistence          |
+| k8s.persistence.create-token                                | Create Long-Lived Token                                          | kubernetes | Persistence          |
+| k8s.privilege-escalation.hostpath-volume                    | Container breakout via hostPath volume mount                     | kubernetes | Privilege Escalation |
+| k8s.privilege-escalation.nodes-proxy                        | Privilege escalation through node/proxy permissions              | kubernetes | Privilege Escalation |
+| k8s.privilege-escalation.privileged-pod                     | Run a Privileged Pod                                             | kubernetes | Privilege Escalation |
+| gcp.privilege-escalation.impersonate-service-accounts       | Impersonate GCP Service Accounts                                 | GCP        | Privilege Escalation |
++-------------------------------------------------------------+------------------------------------------------------------------+------------+----------------------+
+
+
+stratus show aws.impact.s3-ransomware-client-side-encryption
+
+stratus warmup aws.impact.s3-ransomware-client-side-encryption
+
+aws s3 ls
+    stratus-red-team-ransomware-bucket-******
+
+
+
+stratus status aws.impact.s3-ransomware-client-side-encryption
+
+  +-------------------------------------------------+----------------------------------------------+--------+
+  | ID                                              | NAME                                         | STATUS |
+  +-------------------------------------------------+----------------------------------------------+--------+
+  | aws.impact.s3-ransomware-client-side-encryption | S3 Ransomware through client-side encryption | WARM   |
+  +-------------------------------------------------+----------------------------------------------+--------+
+
+ 
+aws s3api list-objects-v2 --bucket stratus-red-team-ransomware-bucket-******
+
+
+
+aws s3api list-objects-v2 --bucket stratus-red-team-ransomware-bucket-******
+
+aws s3 cp s3://stratus-red-team-ransomware-bucket-******/FILES-DELETED.txt - | cat
+
+
+aws s3api list-objects-v2 --bucket stratus-red-team-ransomware-bucket-jduvyr --output json \
+  | jq -r '.Contents[].Key' \
+  | awk 'BEGIN{printf "%-120s\n","Key"; print "------------------------------------------------------------------------------------------------------------------------"} {printf "%-120s\n",$0}'
+
+
+aws s3 cp s3://stratus-red-team-ransomware-bucket-jduvyr/FILES-DELETED.txt - | cat
